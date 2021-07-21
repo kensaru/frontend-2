@@ -1,0 +1,121 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+/* Variables */
+:root {
+    /* Colors */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-magneta-dark: hsl(300, 43%, 22%);
+    --clr-magneta-grayish-dark: hsl(303, 10%, 53%);
+    --clr-magneta-grayish-light: hsl(300, 24%, 96%);
+    --clr-pink: hsl(333, 80%, 67%);
+    --clr-blue:  hsl(228, 45%, 44%);
+}
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('src/frontend-projects/socialsupport/assets/images/bg-pattern-top-desktop.svg'), url('src/frontend-projects/socialsupport/assets/images/bg-pattern-bottom-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    font-family: 'Spartan', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Utilities */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Animations */
+@keyframes info-slide {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rating-slide {
+    0% {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes ref-slide1 {
+    0% {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes ref-slide2 {
+    0% {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes ref-slide3 {
+    0% {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+}
+
+@keyframes footer-slide {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    body {
+        background: url('src/frontend-projects/socialsupport/assets/images/bg-pattern-top-mobile.svg'), url('src/frontend-projects/socialsupport/assets/images/bg-pattern-bottom-mobile.svg');
+        background-repeat: no-repeat;
+        background-position: top left, bottom right;
+    }
+}
