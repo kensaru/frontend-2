@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Pricing Component with Toggle</title>
+
+  <style>
+    :root{
+      --main-color: hsl(237, 63%, 64%);
+      --background: hsl(240, 78%, 98%);
+      --light-text: hsl(233, 13%, 49%);
+      --dark-text: hsl(232, 13%, 33%);
+      --gradient : linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    }
+    *{
+      margin: 0;padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      font-family: Montserrat, sans-serif;
+      background-image: url(images/bg-top.svg);
+      background-repeat: no-repeat;
+      background-color: var(--background);
+      background-position: top right;
+    }
+
+    /* header */
+    #header{
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #title-header{
+      font-size: 2rem;
+      color: var(--light-text);
+    }
+    .header-toggle-group{
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      color: rgba(0,0,0,.45);
+    }
+    #header-toggle{
+      width: 4rem;height: auto;
+      background: var(--gradient);
+      border-radius: 20px;
+      padding: 5px;
+      transition: .2s ease-in-out;
+      
+    }
+    #header-toggle:hover{
+      opacity: .7;
+    }
+    #header-toggle-ball{
+      width: 1.6rem; height: 1.6rem;
+      padding: 10px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .3s ease-in-out;
+    }
+    .float-toggle{
+      float: right;
+    }
+
+    /* end header */
+
+    /* card */
+    .container{
+      padding: 30px;
+    }
+    .card{
+      text-align: center;
+      padding: 50px 40px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0px 2px 20px rgba(0,0,0,.12);
+      overflow: hidden;
+    }
+    .card p, .card-text-group p, .btn{
+      color: var(--light-text);
+      font-size: 15px;
+    }
+    .card-title{
+      font-size: 1.3rem !important;
+    }
+    .card-price-group{
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid rgb(196, 195, 195);
+    }
+    .card-price{
+      display: block;
+      font-size: 4.6rem;
+      color: var(--dark-text);
+    }
+    .card-price-group p{
+      font-size: 2.5rem;
+      color: var(--dark-text);
+    }
+    .hide{
+      display: none;
+    }
+    /* .monthly{
+      display: block;
+    }
+    .annually{
+      display: none;
+    } */
+    /* .card-price-annually{
+      display: none;
+    } */
+    .card-text-group p{
+      border-bottom: 1px solid rgb(196, 195, 195);
+      padding: 18px 0;
+    }
+    .card-text-storage{
+      border-top: 1px solid rgb(196, 195, 195);
+    }
+    .btn{
+      display: block;
+      font-family: inherit;
+      background: var(--gradient);
+      width: 100%;
+      margin-top: 40px;
+      border: none;
+      padding: 15px 0;
+      border-radius: 6px;
+      text-transform: uppercase;
+      color: white;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all .3s ease !important;
+      border: 2px solid white;
+    }
+
+    /* .btn:hover{
+      background: none;
+      border: 2px solid var(--main-color);
+      color: var(--main-color);
+       margin-top: 39px;
+
+    } */
+    .basic-card, .master-card{
+      background: white;
+    }
+    .professional-card{
+      background: var(--gradient);
+      /* box-shadow: 0px 2px 20px rgba(0,0,0,.12); */
+    }
+    .professional-card h1, .professional-card p, .professional-card div{
+      color: white;
+    }
+    .professional-card .card-text{
+      border-bottom: 1px solid white;
+    } 
+    .professional-card, .card-text-storage{
+      border-top: 1px solid white;
+    }
+    .btn-special{
+      background: white;
+      color: hsl(237, 63%, 64%);
+    }
+    .btn:hover{
+      background: none;
+      color: hsl(237, 63%, 64%);
+      border: 2px solid hsl(237, 63%, 64%);
+    }
+    .btn-special:hover{
+      background: none;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    
+    /* end card */
+
+
+
+
+
+
+
+
+    /* ignored css */
+    /* .inline{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .coba-title{
+      font-size: 5rem;
+    } */
+
+    .attribution { font-size: 11px; text-align: center; margin-bottom: 40px; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+
+
+
+    @media screen and (min-width: 768px){
+      body{
+        background-image: url(images/bg-bottom.svg), url(images/bg-top.svg);
+        background-repeat: no-repeat;
+      }
+      /* .container{
+        margin: 0 auto;
+      } */
+      .header-toggle-group{
+        justify-content: center;
+      }
+      #header-toggle{
+        margin: 0 24px;
+      }
+      .card-group{
+        display: flex;
+        font-display: auto;
+        justify-content: center;
+        align-items: center;
+        /* margin: 0 auto; */
+      }
+      
+      .card{
+        padding: 30px;
+        min-width: 27vw;
+      }
+      .card-price{
+        font-size: 4rem;
+      }
+      .professional-card{
+        padding: 60px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="header">
+    <h1 id="title-header">Our Pricing</h1>
+    <div class="header-toggle-group">
+      <p class="header-annually">Annually</p>
+      <div id="header-toggle">
+        <div id="header-toggle-ball" class="float-toggle"></div>
+      </div>
+      <p class="header-monthly">Monthly</p>
+    </div>
+  </section>
+
+  <section id="card-section">
+    <div class="container">
+
+      <div class="card-group">
+        <div class="card basic-card">
+          <p class="card-title">Basic</p>
+          <div class="card-price-group">
+            <p class="card-price-dollar">&dollar;</p>
+            <h1 class="card-price" id="basic-monthly">19.99</h1>
+            <h1 class="card-price card-price-annually hide" id="basic-annually">199.99</h1>
+          </div>
+          
+          <div class="card-text-group">
+            <p class="card-text card-text-storage">500 GB Storage</p>
+            <p class="card-text">2 Users Allowed</p>
+            <p class="card-text">Send up to 3 GB</p>
+          </div>
+          <!-- <button class="btn">Learn More</button> -->
+          <a href="#" class="btn">Learn More</a>
+        </div>
+  
+        <div class="card professional-card">
+          <p class="card-title">Professional</p>
+          <div class="card-price-group">
+            <p class="card-price-dollar">&dollar;</p>
+            <h1 class="card-price" id="professional-monthly">24.99</h1>
+            <h1 class="card-price card-price-annually  hide" id="professional-annually">249.99</h1>
+          </div>
+          <div class="card-text-group">
+            <p class="card-text card-text-storage">1 TB Storage</p>
+            <p class="card-text">5 User Allowed</p>
+            <p class="card-text">Send up to 10 GB</p>
+          </div>
+          <button class="btn btn-special">Learn More</button>
+        </div>
+        
+        <div class="card master-card">
+          <p class="card-title">Master</p>
+          <div class="card-price-group">
+            <p class="card-price-dollar">&dollar;</p>
+            <h1 class="card-price" id="master-monthly">39.99</h1>
+            <h1 class="card-price card-price-annually  hide" id="master-annually">399.99</h1>
+          </div>
+          <div class="card-text-group">
+            <p class="card-text card-text-storage">2 TB Storage</p>
+            <p class="card-text">10 Users Allowed</p>
+            <p class="card-text">Send up to 20 GB</p>
+          </div>
+          <button class="btn">Learn More</button>
+        </div>
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  <!-- <div class="coba">
+    <p class="coba-dollar inline">&dollar;</p>
+    <h1 class="coba-title inline">19.99</h1>
+  </div> -->
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="http://instagram.com/haikalll.docx">Candra Haikal</a>.
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
